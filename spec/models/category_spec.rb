@@ -21,4 +21,11 @@ RSpec.describe Category, type: :model do
       end
     end
   end
+
+  describe "relationships" do
+    it "has many jobs" do
+      category = Category.new(title: "Finance")
+      expect(category).to respond_to(:jobs)
+    end
+  end
 end
