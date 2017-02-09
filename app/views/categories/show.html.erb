@@ -1,1 +1,16 @@
 <h2><%= @category.title %></h2>
+
+<ul>
+  <% if @category.jobs.nil? %>
+      <li>
+        There are no jobs in this category
+      </li>
+  <% else %>
+    <% @category.jobs.each do |job| %>
+      <li>
+        <%= link_to job.title, company_job_path(job.company, job) %>
+      </li>
+
+    <% end %>
+  <% end %>
+</ul>
