@@ -3,8 +3,9 @@ require 'rails_helper'
 RSpec.describe "When user fills out job edit form" do
   context "with valid inputs" do
     scenario "... they are directed to job show and see updated info" do
+      category = Category.create(title: "Finance")
       company = Company.create(name: "ESPN")
-      company.jobs.create!(title: "Developer", level_of_interest: 90, city: "Denver")
+      company.jobs.create!(title: "Developer", level_of_interest: 90, city: "Denver", category: category)
 
       visit(edit_company_job_path(company, company.jobs.first))
 
@@ -25,8 +26,9 @@ RSpec.describe "When user fills out job edit form" do
 
   context "with invalid entries" do
     scenario "they see the edit form again" do
+      category = Category.create(title: "Finance")
       company = Company.create(name: "ESPN")
-      company.jobs.create!(title: "Developer", level_of_interest: 90, city: "Denver")
+      company.jobs.create!(title: "Developer", level_of_interest: 90, city: "Denver", category: category)
 
       visit(edit_company_job_path(company, company.jobs.first))
 
