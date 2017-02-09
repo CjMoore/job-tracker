@@ -22,6 +22,17 @@ class CategoriesController < ApplicationController
     @categories = Category.all
   end
 
+  def edit
+    @category = Category.find(params[:id])
+  end
+
+  def update
+    @category = Category.find(params[:id])
+    @category.update_attributes(category_params)
+
+    redirect_to @category
+  end
+  
   private
 
   def category_params
