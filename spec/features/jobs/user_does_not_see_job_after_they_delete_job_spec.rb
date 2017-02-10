@@ -2,8 +2,9 @@ require 'rails_helper'
 
 RSpec.describe "When the user deletes a job" do
   scenario "they are directed to company page and do not see the deleted job" do
+    category = Category.create(title: "Finance")
     company = Company.create(name: "ESPN")
-    company.jobs.create!(title: "Developer", level_of_interest: 90, city: "Denver")
+    company.jobs.create!(title: "Developer", level_of_interest: 90, city: "Denver", category: category)
 
     visit(company_job_path(company, company.jobs.first))
 
