@@ -7,6 +7,7 @@ class CommentsController < ApplicationController
     if @comment.save
       redirect_to job_path(@comment.job)
     else
+      @job = @comment.job
       render "jobs/show"
     end
   end

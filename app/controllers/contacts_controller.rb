@@ -3,9 +3,12 @@ class ContactsController < ApplicationController
   def create
     @contact = Contact.new(contact_params)
     @contact.company_id = params[:company_id]
-    @contact.save
-
-    redirect_to company_path(@contact.company)
+    if @contact.save
+      redirect_to company_path(@contact.company)
+    else
+      @company = @contact.company
+      render :'companies/show'
+    end
   end
 
   private
