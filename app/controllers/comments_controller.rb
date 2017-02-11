@@ -3,9 +3,12 @@ class CommentsController < ApplicationController
   def create
     @comment = Comment.new(comment_params)
     @comment.job_id = params[:job_id]
-    @comment.save
-    
-    redirect_to job_path(@comment.job)
+
+    if @comment.save
+      redirect_to job_path(@comment.job)
+    else
+      render "jobs/show"
+    end
   end
 
   private
