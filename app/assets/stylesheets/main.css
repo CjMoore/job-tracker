@@ -1,0 +1,14 @@
+
+
+.custom-collection .company-name {
+  color: black;
+  font-size: 40px;
+  text-align: center;
+}
+
+.btn-delete {
+  float: right;
+  width: 50px;
+  font-size: 10px;
+  text-align: left;
+}
