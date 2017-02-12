@@ -1,0 +1,14 @@
+
+
+<h3>All Jobs Sorted by <%= @sort_by %></h3>
+
+<% @jobs.each do |job| %>
+  <h4><%= job.title %> at <%= job.company.name %> </h4>
+  <p>
+    <%= job.city %>
+  </p>
+  <p>
+    <%= job.level_of_interest %>
+  </p>
+
+<% end %>

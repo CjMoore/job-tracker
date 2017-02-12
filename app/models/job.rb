@@ -3,4 +3,13 @@ class Job < ActiveRecord::Base
   belongs_to :company
   belongs_to :category
   has_many :comments
+
+
+  def self.sort(sort_by)
+    if sort_by.include?("location")
+      order(:city)
+    elsif sort_by.include?("interest")
+      order(:level_of_interest)
+    end
+  end
 end

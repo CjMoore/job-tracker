@@ -52,6 +52,11 @@ class JobsController < ApplicationController
     redirect_to company_jobs_path
   end
 
+  def analysis
+    @sort_by = params[:sort]
+    @jobs = Job.sort(@sort_by)
+  end
+
   private
 
   def job_params

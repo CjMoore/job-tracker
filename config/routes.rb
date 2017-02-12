@@ -12,6 +12,8 @@ Rails.application.routes.draw do
     resources :comments, only: [:create]
   end
 
+  get '/jobs', to: 'jobs#analysis'
+
   resources :categories
 
   root 'companies#index'
