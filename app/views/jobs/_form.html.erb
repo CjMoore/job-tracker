@@ -11,8 +11,15 @@
   <%= f.label :city %>
   <%= f.text_field :city %>
 
-  <%= f.label :category %><br>
-  <%= f.collection_select :category_id, Category.all, :id, :title %>
+  <%#= f.collection_select :category_id, Category.all, :id, :title %>
+  <%#= f.label :category %><br>
+
+  <select class="browser-default" name= "job[category_id]">
+    <option value="" disabled selected>Choose your category</option>
+    <% Category.all.each do |category| %>
+    <option value="<%= category.id %>"><%= category.title %></option>
+    <% end %>
+  </select></br>
 
   <%= f.submit %>
 <% end %>
