@@ -12,4 +12,16 @@ class Job < ActiveRecord::Base
       order(:level_of_interest)
     end
   end
+
+  def self.jobs_in_city(city)
+    where(city: city)
+  end
+
+  def self.by_interest
+    group(:level_of_interest).count
+  end
+
+  def self.by_location
+    group(:city).count
+  end
 end

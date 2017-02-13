@@ -14,6 +14,8 @@ Rails.application.routes.draw do
 
   get '/jobs', to: 'jobs#analysis'
 
+  get '/dashboard', to: 'jobs#dashboard'
+
   resources :categories
 
   root 'companies#index'

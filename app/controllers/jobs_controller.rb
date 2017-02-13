@@ -53,8 +53,18 @@ class JobsController < ApplicationController
   end
 
   def analysis
-    @sort_by = params[:sort]
-    @jobs = Job.sort(@sort_by)
+    if params.keys.include?("sort")
+      @sort_by = params[:sort]
+      @jobs = Job.sort(@sort_by)
+    elsif params.keys.include?("location")
+      @sort_by = params[:location]
+      @jobs = Job.jobs_in_city(@sort_by)
+    end
+  end
+
+  def dashboard
+    @jobs_by_interest = Job.by_interest
+    @jobs_by_location = Job.by_location
   end
 
   private

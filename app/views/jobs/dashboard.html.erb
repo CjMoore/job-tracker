@@ -1,0 +1,31 @@
+<h2>Analysis Dashboard</h2>
+
+<h4>Jobs by Interest</h4>
+
+<table class = "bordered">
+  <tr>
+    <th>Level of Interest</th>
+    <th>Number of Jobs</th>
+  </tr>
+  <% @jobs_by_interest.each do |interest, count| %>
+    <tr>
+      <td><%= interest %></td>
+      <td><%= count %></td>
+    </tr>
+  <% end %>
+</table><br/>
+
+
+<h4>Jobs by Location</h4>
+<table class = "bordered">
+  <tr>
+    <th>City</th>
+    <th>Number of Jobs</th>
+  </tr>
+  <% @jobs_by_location.each do |city, count| %>
+    <tr>
+      <td><%= link_to city, jobs_path(:location => city) %></td>
+      <td><%= count %></td>
+    </tr>
+    <% end %>
+</table>
