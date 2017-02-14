@@ -4,15 +4,17 @@
 <ul class="collection">
 
 <% @companies.each do |company| %>
-  <li class = "collection-item custom-collection">
+  <div class = "custom-item">
+    <li class = "collection-item custom-collection">
 
-  <div class=company_<%= company.id %>>
-    <%= link_to company.name, company_path(company), class: 'company-name' %><br>
+    <div class=company_<%= company.id %>>
+      <%= link_to company.name, company_path(company), class: 'company-name' %><br>
 
-    <%= link_to "Edit", edit_company_path(company), class: "btn blue" %>
-    <%= link_to "Delete", company_path(company), method: "delete", class: "btn btn-delete red" %>
+      <%= link_to "Edit", edit_company_path(company), class: "btn blue btn-edit" %>
+      <%= link_to "Delete", company_path(company), method: "delete", class: "btn btn-delete red" %>
+    </div>
+    </li>
   </div>
-  </li>
 <% end %>
 
 </ul>

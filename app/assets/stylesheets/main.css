@@ -3,12 +3,29 @@
 .custom-collection .company-name {
   color: black;
   font-size: 40px;
-  text-align: center;
+  display: inline-block;
+  padding-bottom: 20px;
+  padding-top: 20px;
 }
 
 .btn-delete {
   float: right;
-  width: 50px;
-  font-size: 10px;
-  text-align: left;
+  padding: 0 10px 0 10px
+}
+
+.btn-edit {
+  padding: 0 10px 0 10px;
+}
+
+.custom-item {
+  border-bottom: 1px solid #E0E0E0;
+}
+
+.card-image {
+  height: 300px;
+}
+
+.image {
+  height: 180px;
+  width: 75px;
 }

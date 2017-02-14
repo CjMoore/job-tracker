@@ -1,12 +1,35 @@
 
-<ul>
+<!-- <ul> -->
+<div class="row">
   <% @company.contacts.each do |contact| %>
-    <li>
+    <!-- <li>
       <div>
-        <h5>Name: <%= contact.name %></h5>
-        <p>Position: <%= contact.position %></p>
-        <p>Email: <%= contact.email %></p>
+        <h5>Name: <%#= contact.name %></h5>
+        <p>Position: <%#= contact.position %></p>
+        <p>Email: <%#= contact.email %></p>
       </div>
-    </li>
-  <% end %>
-</ul>
+    </li> -->
+<!-- </ul> -->
+
+        <div class="col s4">
+          <div class="card small blue-grey darken-1">
+            <div class="card-image">
+              <img src="https://robohash.org/<%= contact.name %>" class = "image">
+              <span class="card-title"><%= contact.name %></span>
+            </div>
+            <div class="card-content white-text">
+              <ul>
+                <li>
+                  Position: <%= contact.position %>
+                </li>
+                <li>
+                  Email: <%= contact.email %>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+
+<% end %>
+</div>

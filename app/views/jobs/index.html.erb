@@ -1,8 +1,26 @@
-All Jobs for <strong><%= @company.name %></strong>
+<h2>All Jobs for <strong><%= @company.name %></strong></h2>
 
+
+<div class="row">
 <% @jobs.each do |job| %>
-  <ul><%= job.title %> at <%= job.company.name %></ul>
+  <div class="col s4">
+    <div class="card teal darken-3">
+      <div class="card-content white-text">
+        <span class="card-title"><%= job.title %></span>
+          <p><%= job.description %></p>
+          <ul>
+            <li>City: <%= job.city %></li>
+            <li>Level of Interest: <%= job.level_of_interest %></li>
+          </ul>
+      </div>
+      <div class="card-action">
+        <%= link_to "Job Page", company_job_path(@company, job), class: "grey-text" %>
+      </div>
+    </div>
+  </div>
 <% end %>
+</div>
+
 
 <h3>Contacts (<%= @company.contacts.count %>)</h3>
 <%= render partial: 'jobs/contacts'%>
